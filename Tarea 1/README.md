@@ -7,3 +7,8 @@ El objetivo de la Tarea 1 es crear un sitio web informativo utilizando únicamen
 - Utilizar solo HTML (sin CSS ni JavaScript).
 - Organizar la información de manera clara y estructurada.
 - Incluir al menos una sección para cada curso finalizado.
+
+
+https://dswtarea1.netlify.app/
+
+Anthony Fabian Ramirez Orellana. carnet: 9490-22-958
