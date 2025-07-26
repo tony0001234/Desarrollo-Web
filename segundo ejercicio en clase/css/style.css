@@ -1,0 +1,85 @@
+:root {
+    --color-primario: #ff0000;
+    --color-secundario: #00ff00;
+    --color-terciario: #0000ff;
+    --borde-general: 50px;
+}
+
+html {
+    --color-fondo: #f0f0f0;
+}
+/**********   variables  **********/
+p {
+    color: aqua;
+}
+#importante {
+    color: red;
+}
+.ejemplo-de-clase {
+    color: blue;
+}
+div p {
+    color: var(--color-fondo);
+}
+div h4, div h5, div h6 {
+    color: #ff00ff;
+    /*<h4>titulo especial 2</h4>*/
+}
+/*
+div h5 {
+    color: orange;
+    font-size: 5cm; -> mm, cm, in, pt, pc, px, em, ex, rem, vw, vh
+
+}
+*/
+h3 {
+    color: #f0f;
+}
+h2 {
+    color: rgb(177, 207, 44);
+}
+
+div {
+    font-size: 2em;/*rem*/
+    height: 50vh;
+    width: min(50vh, 200px);/*50%, 50vw (width), 50vh(high)*/
+    /*max(50vh, 200px)*/
+    /*clamp(100px, 50%, 200px*/
+    background-color: gray;
+    border-radius: var(--borde-general);
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+div:hover {
+    background-color: var(--color-primario);
+    width: 80%;
+    height: 80%;
+    transition: 5s;
+}
+
+div::before {
+    content: "Hola mundo";
+    color: var(--color-secundario);
+    font-size: 2rem;
+}
+
+p::before {
+    content: "-";
+    color: var(--color-terciario);
+    font-size: 2rem;
+}
+
+@media(min-width: 200px) {
+    body {
+        background-color: yellow;
+    }
+}
+
+@media(min-width: 300px){
+    body {
+        background-color: green;
+    }
+}
