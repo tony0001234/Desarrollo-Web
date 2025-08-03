@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.L-negro {
+    color: #ffffff;
+}
+
+img {
+    margin: 18px;
+    border: 3px solid #f3f4f6;
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    background: rgba(30,41,59,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: inline-block;
+    vertical-align: top;
+}
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(30,41,59,0.25);
+}
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: url('img5.jpg') no-repeat center center fixed;
+    background-size: cover;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* Párrafos */
+p {
+    margin-bottom: 16px;
+}
+
+/* Enlaces */
+a {
+    color: #a4c0fc;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #1e40af;
+    text-decoration: underline;
+}
+
+ul, ol {
+    margin-left: 24px;
+    margin-bottom: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+th {
+    background: #f3f4f6;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 16px;
+    }
+    body {
+        font-size: 1rem;
+    }
+}
