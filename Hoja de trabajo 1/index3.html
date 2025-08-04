@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alojamientos cerca de Semuc Champey</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success mb-4">
+        <div class="container-lg">
+            <a class="navbar-brand" href="index3.html">Alojamientos Semuc Champey</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#alojamientos">Alojamientos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pie">Pie de pagina</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div class="container-lg mb-4">
+        <div id="alojamientosCarousel" class="carousel slide custom-carousel" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" id="#alojamientos">
+                    <img src="https://www.kayak.com.gt/rimg/himg/56/e4/ff/expediav2-19316231-cc6d4030_z-805101.jpg?width=836&height=607&crop=true" class="d-block w-100" alt="Hostal El Portal">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Hostal El Portal</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://z.cdrst.com/foto/hotel-sf/e85f8/granderesp/greengos-hotel-general-dd5a9f1.jpg" class="d-block w-100" alt="Greengos Hotel">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Greengos Hotel</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.guatemala.com/fotos/2024/01/utopia-eco-hotel-2.jpg" class="d-block w-100" alt="Utopia Eco Hotel">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Utopia Eco Hotel</h5>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#alojamientosCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#alojamientosCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Alojamientos Cards -->
+    <div class="container-lg" id="alojamientos">
+        <h1 class="mb-4 text-center L-negro">Alojamientos de Interés Cerca de Semuc Champey</h1>
+        <div class="row g-4">
+            <!-- Alojamiento 1 -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="https://www.kayak.com.gt/rimg/himg/56/e4/ff/expediav2-19316231-cc6d4030_z-805101.jpg?width=836&height=607&crop=true" class="card-img-top" alt="Hostal El Portal">
+                    <div class="card-body">
+                        <h5 class="card-title">Hostal El Portal</h5>
+                        <p class="card-text">Ubicado a la orilla del río Cahabón, ofrece habitaciones cómodas, restaurante y tours a Semuc Champey.</p>
+                        <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalPortal">Detalles</button>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://www.facebook.com/ElPortalDeSemucChampey/?locale=es_LA" target="_blank" class="btn btn-success">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal 1 -->
+            <div class="modal fade" id="modalPortal" tabindex="-1" aria-labelledby="modalPortalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalPortalLabel">Hostal El Portal</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/1c/c0/a8/photo2jpg.jpg" class="img-fluid mb-3" alt="Hostal El Portal">
+                            <p>El Portal es ideal para viajeros que buscan comodidad y cercanía a Semuc Champey. Ofrece habitaciones privadas y compartidas, restaurante, bar y tours organizados.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="https://www.facebook.com/ElPortalDeSemucChampey/?locale=es_LA" target="_blank" class="btn btn-success">Sitio web</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Alojamiento 2 -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="https://z.cdrst.com/foto/hotel-sf/e85f8/granderesp/greengos-hotel-general-dd5a9f1.jpg" class="card-img-top" alt="Greengos Hotel">
+                    <div class="card-body">
+                        <h5 class="card-title">Greengos Hotel</h5>
+                        <p class="card-text">Hotel ecológico rodeado de naturaleza, con piscina, restaurante y acceso fácil a Semuc Champey.</p>
+                        <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalGreengos">Detalles</button>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://www.greengoshotel.com/" target="_blank" class="btn btn-success">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal 2 -->
+            <div class="modal fade" id="modalGreengos" tabindex="-1" aria-labelledby="modalGreengosLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalGreengosLabel">Greengos Hotel</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://www.guatemala.com/fotos/2023/09/greengos-hotel.jpg" class="img-fluid mb-3" alt="Greengos Hotel">
+                            <p>Greengos Hotel es un alojamiento ecológico con piscina, restaurante y bar. Perfecto para quienes buscan naturaleza y tranquilidad cerca de Semuc Champey.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="https://www.greengoshotel.com/" target="_blank" class="btn btn-success">Sitio web</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Alojamiento 3 -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="https://www.guatemala.com/fotos/2024/01/utopia-eco-hotel-2.jpg" class="card-img-top" alt="Utopia Eco Hotel">
+                    <div class="card-body">
+                        <h5 class="card-title">Utopia Eco Hotel</h5>
+                        <p class="card-text">Alojamiento ecológico con vistas al río, restaurante vegetariano y actividades al aire libre.</p>
+                        <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalUtopia">Detalles</button>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://utopiaecohotel.com/" target="_blank" class="btn btn-success">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal 3 -->
+            <div class="modal fade" id="modalUtopia" tabindex="-1" aria-labelledby="modalUtopiaLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalUtopiaLabel">Utopia Eco Hotel</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/03/15/45/e9/utopia-eco-hotel.jpg" class="img-fluid mb-3" alt="Utopia Eco Hotel">
+                            <p>Utopia Eco Hotel ofrece alojamiento ecológico, restaurante vegetariano, actividades al aire libre y vistas impresionantes al río Cahabón.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="https://utopiaecohotel.com/" target="_blank" class="btn btn-success">Sitio web</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs de Hoteles de Interés -->
+    <div class="container-lg my-5">
+        <h2 class="mb-4 text-center L-negro">Otros Hoteles de Interés</h2>
+        <ul class="nav nav-tabs justify-content-center" id="hotelesTab" role="tablist">
+            <li class="nav-item L-negro" role="presentation">
+                <button class="nav-link active L-negro" id="zephyr-tab" data-bs-toggle="tab" data-bs-target="#zephyr" type="button" role="tab" aria-controls="zephyr" aria-selected="true">
+                    Zephyr Lodge
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link L-negro" id="posada-tab" data-bs-toggle="tab" data-bs-target="#posada" type="button" role="tab" aria-controls="posada" aria-selected="false">
+                    Posada Las Marias
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link L-negro" id="elRetiro-tab" data-bs-toggle="tab" data-bs-target="#elRetiro" type="button" role="tab" aria-controls="elRetiro" aria-selected="false">
+                    El Retiro Lodge
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content p-4 border border-top-0 bg-light" id="hotelesTabContent">
+            <div class="tab-pane fade show active" id="zephyr" role="tabpanel" aria-labelledby="zephyr-tab">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <img src="https://images.trvl-media.com/lodging/88000000/87710000/87704500/87704477/2bf6af04.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill" class="img-fluid rounded mb-3 mb-md-0" alt="Zephyr Lodge">
+                    </div>
+                    <div class="col-md-8">
+                        <h5>Zephyr Lodge</h5>
+                        <p>Hostal popular entre mochileros, con piscina infinita, bar y vistas panorámicas al valle de Lanquín. Ideal para socializar y relajarse después de visitar Semuc Champey.</p>
+                        <a href="https://zephyrlodgelanquin.com/" target="_blank" class="btn btn-success">Sitio web</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="posada" role="tabpanel" aria-labelledby="posada-tab">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <img src="https://images.trvl-media.com/lodging/60000000/59060000/59054700/59054685/c6b7208d.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill" class="img-fluid rounded mb-3 mb-md-0" alt="Posada Las Marias">
+                    </div>
+                    <div class="col-md-8">
+                        <h5>Posada Las Marias</h5>
+                        <p>Pequeño hotel familiar en Lanquín, con habitaciones cómodas, restaurante y atención personalizada. Perfecto para quienes buscan tranquilidad y ambiente acogedor.</p>
+                        <a href="https://www.facebook.com/p/Las-Mar%C3%ADas-Kanba-de-Semuc-Champey-Guatemala-100057542714070/" target="_blank" class="btn btn-success">Sitio web</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="elRetiro" role="tabpanel" aria-labelledby="elRetiro-tab">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <img src="https://a.hwstatic.com/image/upload/f_auto,q_auto,t_40/propertyimages/3/326735/x0iv8vw4tns0ona4g01v.jpg" class="img-fluid rounded mb-3 mb-md-0" alt="El Retiro Lodge">
+                    </div>
+                    <div class="col-md-8">
+                        <h5>El Retiro Lodge</h5>
+                        <p>Ubicado a orillas del río Lanquín, ofrece bungalows, restaurante, bar y actividades como tubing. Ambiente relajado y rodeado de naturaleza.</p>
+                        <a href="https://www.elretirolodgelanquin.com/" target="_blank" class="btn btn-success">Sitio web</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="pie" class="bg-success text-white py-4">
+        <a href="https://github.com/tony0001234" class="text-white">Anthony Fabian Ramirez Orellana. Carnet: 9490-22-958</a>
+        <nav class="mt-3">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="index2.html">Atracciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="index3.html">Alojamiento</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

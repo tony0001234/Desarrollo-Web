@@ -52,7 +52,7 @@ p {
 
 /* Enlaces */
 a {
-    color: #a4c0fc;
+    color: #d4d9e4;
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -81,11 +81,21 @@ th {
     font-weight: 600;
 }
 
-@media (max-width: 600px) {
-    .container {
-        padding: 16px;
+ @media (max-width: 767.98px) {
+            .custom-carousel {
+                height: 200px;
+            }
+            .custom-carousel img {
+                height: 200px;
+                object-fit: cover;
+            }
+}
+@media (min-width: 768px) {
+    .custom-carousel {
+        height: 400px;
     }
-    body {
-        font-size: 1rem;
+    .custom-carousel img {
+        height: 400px;
+        object-fit: cover;
     }
 }

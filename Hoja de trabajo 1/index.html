@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Excursión a Semuc Champey</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,17 +12,29 @@
 
     <p class="L-negro">
         Semuc Champey es un paraíso natural ubicado en el departamento de Alta Verapaz, Guatemala. 
+        En esta página encontrarás información general sobre la excursión, así como enlaces a secciones dedicadas a las principales atracciones y opciones de alojamiento en la zona. 
+        Utiliza el menú en el pie de página para navegar entre las páginas de Inicio, Atracciones y Alojamiento, donde podrás descubrir detalles sobre los lugares más destacados para visitar y las mejores alternativas para hospedarte durante tu viaje.
         Se caracteriza por sus impresionantes pozas naturales de agua turquesa formadas sobre un puente de piedra caliza. 
         Es un destino ideal para los amantes de la naturaleza, la aventura y los paisajes únicos.
     </p>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="#">Indice</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#indice">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="indice">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#galeria">Galeria de Imagenes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#itinerario">Itinerario</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#actividades">Actividades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pie">Pie de Página</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <h2 class="L-negro">Índice</h2>
-    <ul>
-        <li><a href="#galeria" class="L-negro">Galería de Imágenes</a></li>
-        <li><a href="#itinerario" class="L-negro">Itinerario</a></li>
-        <li><a href="#actividades" class="L-negro">Actividades</a></li>
-        <li><a href="#pie" class="L-negro">Pie de Página</a></li>
-    </ul>
 
     <h2 id="galeria" class="L-negro">Galería de Imágenes</h2>
     <img src="img1.jpg" alt="Semuc Champey 1" width="300">
@@ -82,9 +95,24 @@
         <li>Exploración de cuevas con antorchas</li>
     </ul>
 
-    <footer id="pie" class="L-negro">
-        <a href="https://github.com/tony0001234">Anthony Fabian Ramirez Orellana. Carnet: 9490-22-958</a>
+    <footer id="pie" class="bg-success text-white py-4">
+    <a href="https://github.com/tony0001234">Anthony Fabian Ramirez Orellana. Carnet: 9490-22-958</a>
+        <nav class="mt-3">
+            <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active L-negro" aria-current="page" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link L-negro" href="index2.html">Atracciones</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link L-negro" href="index3.html">Alojamiento</a>
+            </li>
+            </ul>
+        </nav>
     </footer>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
