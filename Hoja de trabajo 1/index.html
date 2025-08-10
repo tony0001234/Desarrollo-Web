@@ -8,9 +8,9 @@
 </head>
 <body>
 
-    <h1 class="L-negro">Excursión a Semuc Champey, Alta Verapaz</h1>
+    <h1 class="L-negro text-center">Excursión a Semuc Champey, Alta Verapaz</h1>
 
-    <p class="L-negro">
+    <p class="L-negro m-3 text-center bg-success text-white p-3 rounded">
         Semuc Champey es un paraíso natural ubicado en el departamento de Alta Verapaz, Guatemala. 
         En esta página encontrarás información general sobre la excursión, así como enlaces a secciones dedicadas a las principales atracciones y opciones de alojamiento en la zona. 
         Utiliza el menú en el pie de página para navegar entre las páginas de Inicio, Atracciones y Alojamiento, donde podrás descubrir detalles sobre los lugares más destacados para visitar y las mejores alternativas para hospedarte durante tu viaje.
@@ -42,58 +42,205 @@
     <img src="img3.jpg" alt="Semuc Champey 3" width="300">
     <img src="img4.jpg" alt="Semuc Champey 4" width="300">
 
-    <h2 id="itinerario" class="L-negro">Tabla de Itinerarios</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Fecha</th>
-                <th>Hora</th>
-                <th>Actividad</th>
-                <th>Lugar</th>
-            </tr>
-        </thead>
-        <tbody class="L-negro">
-            <tr>
-                <td>15/08/2025</td>
-                <td>06:00 AM</td>
-                <td>Salida de Ciudad de Guatemala</td>
-                <td>Terminal Centra Norte</td>
-            </tr>
-            <tr>
-                <td>15/08/2025</td>
-                <td>12:00 PM</td>
-                <td>Almuerzo y llegada</td>
-                <td>Lanquín</td>
-            </tr>
-            <tr>
-                <td>15/08/2025</td>
-                <td>02:00 PM</td>
-                <td>Visita a Semuc Champey</td>
-                <td>Pozas Naturales</td>
-            </tr>
-            <tr>
-                <td>16/08/2025</td>
-                <td>09:00 AM</td>
-                <td>Tour por cuevas de K'an Ba</td>
-                <td>Semuc Champey</td>
-            </tr>
-            <tr>
-                <td>16/08/2025</td>
-                <td>04:00 PM</td>
-                <td>Regreso a la ciudad</td>
-                <td>Lanquín</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h2 id="itinerario" class="L-negro text-center mb-4">Tabla de Itinerarios</h2>
+                
+                <!-- Botones para cambiar entre tablas -->
+                <div class="text-center mb-4">
+                    <button type="button" class="btn btn-primary btn-custom" onclick="mostrarTabla('montana')">
+                        Itinerario de Montaña
+                    </button>
+                    <button type="button" class="btn btn-success btn-custom" onclick="mostrarTabla('playa')">
+                        Itinerario de Playa
+                    </button>
+                    <button type="button" class="btn btn-warning btn-custom" onclick="mostrarTabla('cultural')">
+                        Itinerario Cultural
+                    </button>
+                </div>
 
-    <h2 id="actividades" class="L-negro">Actividades Adicionales</h2>
-    <ul class="L-negro">
-        <li>Senderismo por los miradores naturales</li>
-        <li>Natación en pozas cristalinas</li>
-        <li>Fotografía de paisajes</li>
-        <li>Paseos en lancha por el río Cahabón</li>
-        <li>Exploración de cuevas con antorchas</li>
-    </ul>
+                <!-- Tabla 1: Itinerario de Montaña (tu tabla existente) -->
+                <div id="tabla-montana" class="tabla-container active">
+                    <h3 class="text-center mb-3  L-negro">🏔️ Itinerario de Montaña - Semuc Champey</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Actividad</th>
+                                    <th>Lugar</th>
+                                </tr>
+                            </thead>
+                            <tbody class="L-negro">
+                                <tr>
+                                    <td>15/08/2025</td>
+                                    <td>06:00 AM</td>
+                                    <td>Salida de Ciudad de Guatemala</td>
+                                    <td>Terminal Central Norte</td>
+                                </tr>
+                                <tr>
+                                    <td>15/08/2025</td>
+                                    <td>12:00 PM</td>
+                                    <td>Almuerzo y llegada</td>
+                                    <td>Lanquín</td>
+                                </tr>
+                                <tr>
+                                    <td>15/08/2025</td>
+                                    <td>02:00 PM</td>
+                                    <td>Visita a Semuc Champey</td>
+                                    <td>Pozas Naturales</td>
+                                </tr>
+                                <tr>
+                                    <td>16/08/2025</td>
+                                    <td>09:00 AM</td>
+                                    <td>Tour por cuevas de K'an Ba</td>
+                                    <td>Semuc Champey</td>
+                                </tr>
+                                <tr>
+                                    <td>16/08/2025</td>
+                                    <td>04:00 PM</td>
+                                    <td>Regreso a la ciudad</td>
+                                    <td>Lanquín</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tabla 2: Itinerario de Playa -->
+                <div id="tabla-playa" class="tabla-container">
+                    <h3 class="text-center mb-3 L-negro">🏖️ Itinerario de Playa - Monterrico</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Actividad</th>
+                                    <th>Lugar</th>
+                                </tr>
+                            </thead>
+                            <tbody class="L-negro">
+                                <tr>
+                                    <td>20/08/2025</td>
+                                    <td>07:00 AM</td>
+                                    <td>Salida hacia la playa</td>
+                                    <td>Ciudad de Guatemala</td>
+                                </tr>
+                                <tr>
+                                    <td>20/08/2025</td>
+                                    <td>10:30 AM</td>
+                                    <td>Llegada y registro en hotel</td>
+                                    <td>Monterrico</td>
+                                </tr>
+                                <tr>
+                                    <td>20/08/2025</td>
+                                    <td>12:00 PM</td>
+                                    <td>Almuerzo de mariscos</td>
+                                    <td>Restaurante El Pelícano</td>
+                                </tr>
+                                <tr>
+                                    <td>20/08/2025</td>
+                                    <td>02:30 PM</td>
+                                    <td>Actividades de playa y relajación</td>
+                                    <td>Playa de Monterrico</td>
+                                </tr>
+                                <tr>
+                                    <td>20/08/2025</td>
+                                    <td>06:00 PM</td>
+                                    <td>Observación de tortugas marinas</td>
+                                    <td>Tortugario Monterrico</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tabla 3: Itinerario Cultural -->
+                <div id="tabla-cultural" class="tabla-container">
+                    <h3 class="text-center mb-3 L-negro">🏛️ Itinerario Cultural - Antigua Guatemala</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Actividad</th>
+                                    <th>Lugar</th>
+                                </tr>
+                            </thead>
+                            <tbody class="L-negro">
+                                <tr>
+                                    <td>25/08/2025</td>
+                                    <td>08:00 AM</td>
+                                    <td>Salida hacia Antigua</td>
+                                    <td>Ciudad de Guatemala</td>
+                                </tr>
+                                <tr>
+                                    <td>25/08/2025</td>
+                                    <td>09:30 AM</td>
+                                    <td>Tour por el Parque Central</td>
+                                    <td>Antigua Guatemala</td>
+                                </tr>
+                                <tr>
+                                    <td>25/08/2025</td>
+                                    <td>11:00 AM</td>
+                                    <td>Visita a la Catedral de Antigua</td>
+                                    <td>Catedral de San José</td>
+                                </tr>
+                                <tr>
+                                    <td>25/08/2025</td>
+                                    <td>01:00 PM</td>
+                                    <td>Almuerzo típico guatemalteco</td>
+                                    <td>Restaurante Doña Luisa</td>
+                                </tr>
+                                <tr>
+                                    <td>25/08/2025</td>
+                                    <td>03:00 PM</td>
+                                    <td>Recorrido por el Convento de las Capuchinas</td>
+                                    <td>Ruinas de Capuchinas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VERSIÓN 1: Lista con iconos y badges -->
+    <div class="container mb-5">
+        <h2 id="actividades" class="text-center mb-4 fw-bold L-negro">
+            <i class="fas fa-mountain me-2"></i>Actividades Adicionales
+        </h2>
+        <div class="bg-white p-4 rounded shadow-sm border-start border-5 border-primary">
+            <ul class="list-unstyled fs-5">
+                <li class="mb-3 d-flex align-items-center">
+                    <span class="badge bg-success me-3"><i class="fas fa-hiking"></i></span>
+                    <span class="text-dark">Senderismo por los miradores naturales</span>
+                </li>
+                <li class="mb-3 d-flex align-items-center">
+                    <span class="badge bg-info me-3"><i class="fas fa-swimmer"></i></span>
+                    <span class="text-dark">Natación en pozas cristalinas</span>
+                </li>
+                <li class="mb-3 d-flex align-items-center">
+                    <span class="badge bg-warning me-3"><i class="fas fa-camera"></i></span>
+                    <span class="text-dark">Fotografía de paisajes</span>
+                </li>
+                <li class="mb-3 d-flex align-items-center">
+                    <span class="badge bg-primary me-3"><i class="fas fa-ship"></i></span>
+                    <span class="text-dark">Paseos en lancha por el río Cahabón</span>
+                </li>
+                <li class="mb-3 d-flex align-items-center">
+                    <span class="badge bg-secondary me-3"><i class="fas fa-search"></i></span>
+                    <span class="text-dark">Exploración de cuevas con antorchas</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 
     <footer id="pie" class="bg-success text-white py-4">
     <a href="https://github.com/tony0001234">Anthony Fabian Ramirez Orellana. Carnet: 9490-22-958</a>
@@ -114,5 +261,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

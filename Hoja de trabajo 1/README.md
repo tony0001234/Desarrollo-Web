@@ -7,6 +7,8 @@ aprendido en clase, agregando estilos para mejorar la presentación visual de la
 
 En esta etapa, se integraron elementos de Bootstrap como botones, tarjetas y barras de navegación para mejorar la experiencia del usuario y agilizar el desarrollo de la interfaz. El uso de Bootstrap permite una mayor adaptabilidad y consistencia visual en diferentes dispositivos, facilitando la creación de un diseño responsivo y moderno.
 
+ se implementaron múltiples componentes web interactivos utilizando HTML5, Bootstrap 5.3.0, JavaScript vanilla y CSS personalizado. Las transformaciones abarcaron desde tablas básicas hasta sistemas complejos de validación de formularios, cada uno diseñado con principios de diseño responsivo y experiencia de usuario moderna.
+
 https://hoja-trabajo-1.netlify.app/
 
 https://hoja-de-trabajo3.netlify.app/
