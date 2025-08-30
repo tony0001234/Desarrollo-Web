@@ -1,0 +1,65 @@
+.selector-numero1 {
+  font-size: 1;
+  color: red;
+}
+
+.selector-numero2 {
+  font-size: 2;
+  color: green;
+}
+
+.selector-numero4 {
+  font-size: 4;
+  color: pink;
+}
+
+.selector-red {
+  color: red;
+}
+
+.selector-green {
+  color: green;
+}
+
+.selector-blue {
+  color: blue;
+}
+
+.selector-pink {
+  color: pink;
+}
+
+.selector-lista {
+  color: pink;
+}
+
+.clase-margin {
+  color: blue;
+  margin: auto;
+}
+
+p, h2 {
+  color: #0f0;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  background-color: #f0f;
+  border-radius: 20px;
+}
+
+.contenedor {
+  background-color: #f00;
+}
+.contenedor .hijo {
+  width: 50%;
+  height: 50%;
+}
+.contenedor .hijo .nieto {
+  padding: 10px;
+  width: 80%;
+  height: 80%;
+  background-color: #f0f;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=index.css.map */

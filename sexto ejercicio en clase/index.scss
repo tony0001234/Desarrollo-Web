@@ -1,0 +1,62 @@
+@use 'variables' as v;
+
+$nombre-contenedor: margin;
+
+$colores:(red, green, blue, pink);
+
+@for $i from 1 through length($colores) {
+
+    @if(nth($colores, $i) != blue) {
+        .selector-numero#{$i} {
+        font-size: $i;
+        color: nth($colores, $i);
+    }
+    }
+}
+
+@each $iterativa in $colores {
+    .selector-#{$iterativa} {
+        color: $iterativa;
+    }
+}
+
+.selector-lista {
+    color: nth($colores, length($colores) );
+}
+
+.clase-#{$nombre-contenedor} {
+    color: blue;
+    #{$nombre-contenedor}:auto;
+}
+
+@mixin contenedor-base($borde, $color: #f0f) {
+    width: 80%;
+    height: 80%;
+    background-color: #f0f;
+    border-radius: $borde;
+}
+
+p {
+  color: v.$color-texto;
+  margin: auto;
+  @include contenedor-base(20px, red);
+}
+
+h2 {
+    @extend p;
+}
+
+.contenedor {
+  $color-texto: #f00;
+  background-color: $color-texto;
+
+  .hijo {
+    width: 50%;
+    height: 50%;
+
+    .nieto {
+      padding: 10px;
+      @include contenedor-base(10px);
+    }
+  }
+}
