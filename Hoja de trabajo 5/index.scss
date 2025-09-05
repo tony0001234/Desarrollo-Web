@@ -1,0 +1,170 @@
+// Importa las variables desde el archivo variables.scss
+@use 'variables' as v;
+
+// Mixin para el menú de navegación
+@mixin estilo_menu {
+    background-color: v.$color-celeste;
+    padding: v.$padding / 2;
+    border-radius: 8px; // Bordes redondeados para mejor apariencia
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.208); // Sombra sutil
+    a {
+        color: v.$color-white;
+        margin-right: v.$margen;
+        text-decoration: none;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: color 0.3s, background 0.3s;
+        &:hover {
+            text-decoration: underline;
+            color: #fa5325;
+            background: rgba(255, 255, 255, 0.066); // Efecto hover más visible
+        }
+    }
+}
+
+// Mixin reutilizable para botones
+@mixin boton-estilo($bg-color, $size) {
+    background-color: $bg-color;
+    color: v.$color-white;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    @if $size == small {
+        padding: 5px 14px;
+        font-size: 13px;
+    } @else if $size == medium {
+        padding: 12px 28px;
+        font-size: 16px;
+    } @else if $size == large {
+        padding: 18px 36px;
+        font-size: 20px;
+    }
+
+    &:hover {
+        opacity: 0.9;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.12); // Sombra más notoria al pasar el mouse
+    }
+}
+
+// Reset básico para todos los elementos
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// Estilos generales del body
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f9f9f9 60%, #e3f0ff 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+// Encabezado principal
+.header {
+    background-color: v.$color-celeste;
+    padding: v.$padding;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+
+    .header__title {
+        font-size: v.$tamaño-fuente * 2.2;
+        color: v.$color-white;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .header__nav {
+        margin-top: 10px;
+        .header__nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            padding: 0;
+            .header__nav-item {
+                @include estilo_menu;
+            }
+        }
+    }
+}
+
+// Contenido principal
+.content {
+    max-width: v.$max-width;
+    margin: 40px auto 0 auto;
+    background: v.$color-white;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    padding: 40px 24px 32px 24px;
+
+    .content__title {
+        font-size: v.$tamaño-fuente * 1.7;
+        color: v.$color-corinto;
+        margin-bottom: 18px;
+        font-weight: 600;
+        text-align: center;
+    }
+    .content__text {
+        color: v.$color-corinto;
+        font-size: v.$tamaño-fuente;
+        margin: 0 auto 32px auto;
+        max-width: 700px;
+        text-align: center;
+        padding: 0 20px;
+        opacity: 0.95;
+    }
+    .content__button {
+        @include boton-estilo(v.$color-corinto, medium);
+        display: block;
+        margin: 0 auto;
+        min-width: 180px;
+    }
+}
+
+// Pie de página
+.footer {
+    background-color: v.$color-celeste;
+    color: v.$color-white;
+    text-align: center;
+    padding: v.$margen * 1.5;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    .footer__text {
+        font-size: v.$tamaño-fuente * 0.95;
+        letter-spacing: 0.5px;
+        opacity: 0.85;
+        margin: 0;
+        padding: v.$margen * 0.5 0;
+    }
+}
+
+// Responsive: Ajustes para pantallas pequeñas
+@media (max-width: 700px) {
+    .content {
+        padding: 24px 8px 20px 8px;
+    }
+    .header__title {
+        font-size: v.$tamaño-fuente * 1.3;
+    }
+    .content__title {
+        font-size: v.$tamaño-fuente * 1.1;
+    }
+    .footer__text {
+        font-size: v.$tamaño-fuente * 0.8;
+    }
+}
