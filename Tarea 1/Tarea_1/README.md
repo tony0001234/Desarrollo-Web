@@ -14,7 +14,7 @@ Demostrar la capacidad de:
 * Aplicar estructuras de listas, tablas e imágenes dentro de un sitio web.
 * Organizar un sitio con varias páginas relacionadas entre sí, simulando un pequeño portal informativo académico.
 
-
+https://tarea2-vite-react.netlify.app/
 
 Anthony Fabian Ramirez Orellana. carnet: 9490-22-958
 
