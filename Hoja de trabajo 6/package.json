@@ -1,0 +1,20 @@
+{
+  "name": "hoja-de-trabajo-6",
+  "version": "1.0.0",
+  "description": "Hoja de trabajo 6 con node y express",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tony0001234",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
