@@ -10,6 +10,8 @@ cd api-usuarios
 npm install
 npm run dev
 
+el servidor se ejecuta en : http://localhost:3000
+
 Despliegue en render:
 https://api-gestion-usuarios-1ytp.onrender.com/users
 
@@ -29,6 +31,14 @@ Content-Type: application/json
   "email": "carlos@test.com",
   "password": "Carlos@123"
 }
+
+PUT /users/1234567890124
+{
+  "email": "carlosnuevo@test.com",
+  "newDpi": "9999999999999"
+}
+
+DELETE /users/1234567890124
 
 
 Anthony Fabian Ramirez Orellana
