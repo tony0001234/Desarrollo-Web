@@ -15,7 +15,7 @@ export default function Register() {
         e.preventDefault();
         setError("");
         try {
-            await axios.post("http://localhost:3001/register", form);
+            await axios.post("https://registro-login-tarea3.onrender.com/register", form);
             alert("Usuario registrado exitosamente");
             navigate("/login");
         } catch (err) {
