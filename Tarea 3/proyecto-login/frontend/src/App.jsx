@@ -5,7 +5,6 @@ import Perfil from './Pages/Perfil.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import { useUser } from './context/UserContext.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
 
 export default function App() {
   const { user, logout } = useUser();
