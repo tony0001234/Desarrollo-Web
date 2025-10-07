@@ -22,6 +22,12 @@ app.post("/register", (req, res) => {
         return res.status(400).json({message: "Todos los campos son obligatorios"});
     }
 
+    //validar unicidad del dpi
+    const dpiExists = users.find(user => user.dpi === dpi);
+    if(dpiExists) {
+        return res.status(400).json({message: "El DPI ya está registrado"});
+    }
+
     //validar unicidad del email
     const emailExists = users.find(user => user.email === email);
     if(emailExists) {

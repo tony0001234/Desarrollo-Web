@@ -1,42 +1,129 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* 🌐 Estilos globales de la aplicación */
+:root {
+  --color-primary: #0d6efd;
+  --color-secondary: #6c757d;
+  --color-success: #198754;
+  --color-light: #f8f9fa;
+  --color-dark: #212529;
+  --font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+/* 🔹 Estilo base del body */
+body {
+  background-color: var(--color-light);
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  color: var(--color-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔹 Navbar */
+.navbar {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-brand {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.navbar .btn {
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.navbar .btn:hover {
+  transform: scale(1.05);
+}
+
+/* 🔹 Encabezados */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: var(--color-primary);
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* 🔹 Formularios generales */
+form {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.form-label {
+  font-weight: 500;
 }
 
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 4px rgba(13, 110, 253, 0.25);
+}
+
+/* 🔹 Botones generales */
+button, .btn {
+  border-radius: 8px !important;
+  padding: 0.6rem 1.2rem !important;
+}
+
+button:hover, .btn:hover {
+  opacity: 0.9;
+}
+
+/* 🔹 Tarjetas (útiles si agregas más componentes) */
 .card {
-  padding: 2em;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.read-the-docs {
-  color: #888;
+.card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+/* 🔹 Footer */
+footer {
+  margin-top: auto;
+  background-color: var(--color-dark);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* 🔹 Responsividad extra */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  form {
+    padding: 1.5rem;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  form {
+    padding: 1rem;
+  }
 }
