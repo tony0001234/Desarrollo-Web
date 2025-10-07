@@ -18,7 +18,7 @@ export default function Login() {
         e.preventDefault();
         setError("");
         try {
-            const response = await axios.post("https://registro-login-tarea3.onrender.com//login", form);
+            const response = await axios.post("https://registro-login-tarea3.onrender.com/login", form);
             login(response.data.user); // Actualiza el contexto global
             alert(`Bienvenido, ${response.data.user.name}`);
             navigate("/");  //regirige a home o dashboard

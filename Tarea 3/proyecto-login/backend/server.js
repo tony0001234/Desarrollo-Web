@@ -4,13 +4,11 @@ import { users } from "./data/users.js";
 
 const app = express();
 
-// ============================================
 // CONFIGURACIÓN DE CORS MEJORADA
-// ============================================
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:3000',
-  'https://tu-app.netlify.app', // ⚠️ REEMPLAZA CON TU URL DE NETLIFY
+  'https://registro-login-tarea3.netlify.app/', 
   // Agrega más orígenes si es necesario
 ];
 
@@ -31,17 +29,13 @@ app.use(cors({
 
 app.use(express.json());
 
-// ============================================
 // MIDDLEWARE DE LOGGING
-// ============================================
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
   next();
 });
 
-// ============================================
 // HEALTH CHECK - Para mantener el servidor activo
-// ============================================
 app.get("/health", (req, res) => {
   res.status(200).json({ 
     status: 'ok', 
@@ -50,16 +44,12 @@ app.get("/health", (req, res) => {
   });
 });
 
-// ============================================
 // RUTA PRINCIPAL DE PRUEBA
-// ============================================
 app.get("/", (req, res) => {
   res.send("Servidor Express funcionando correctamente ✅");
 });
 
-// ============================================
 // RUTA PARA REGISTRAR USUARIOS
-// ============================================
 app.post("/register", (req, res) => {
   console.log('📝 Registro - Request recibido');
   
@@ -111,9 +101,7 @@ app.post("/register", (req, res) => {
   return res.status(201).json({message: "Usuario registrado exitosamente"});
 });
 
-// ============================================
 // RUTA PARA LOGIN - MEJORADA
-// ============================================
 app.post("/login", (req, res) => {
   console.log('🔐 Login - Request recibido:', new Date().toISOString());
   console.log('📧 Login - Email:', req.body.email);
@@ -143,16 +131,12 @@ app.post("/login", (req, res) => {
   });
 });
 
-// ============================================
 // MANEJO DE RUTAS NO ENCONTRADAS
-// ============================================
 app.use((req, res) => {
   res.status(404).json({ message: 'Ruta no encontrada' });
 });
 
-// ============================================
 // MANEJO DE ERRORES GLOBAL
-// ============================================
 app.use((err, req, res, next) => {
   console.error('❌ Error:', err);
   res.status(500).json({ 
@@ -161,9 +145,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-// ============================================
 // INICIAR SERVIDOR
-// ============================================
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor escuchando en el puerto ${PORT}`);
