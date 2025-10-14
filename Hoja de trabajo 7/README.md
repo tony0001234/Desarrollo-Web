@@ -35,3 +35,6 @@ Pruebas con postman:
 
 **nota** Se deben de incluir los token en los encabezados:
     Authorization: Bearer <tu_token_JWT>
+
+link de Render
+https://hoja-de-trabajo-7-i3zi.onrender.com
