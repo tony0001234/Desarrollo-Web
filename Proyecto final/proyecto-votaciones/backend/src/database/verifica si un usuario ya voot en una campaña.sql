@@ -1,0 +1,1 @@
+SELECT 1 FROM votes WHERE user_id = ? AND campaign_id = ? LIMIT 1;
