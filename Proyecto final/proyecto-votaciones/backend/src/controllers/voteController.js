@@ -1,38 +1,55 @@
-import { openDb } from '../db.js';
+import { openDb } from "../db.js";
 
+// POST /votes
 export async function castVote(req, res) {
-  const { user_id, campaign_id, candidate_id } = req.body;
-
-  if (!user_id || !campaign_id || !candidate_id) {
-    return res.status(400).json({ message: 'Faltan campos requeridos' });
-  }
-
   const db = await openDb();
+  const { campaign_id, candidate_id } = req.body;
+  const user_id = req.user.id;
+
+  if (!campaign_id || !candidate_id)
+    return res.status(400).json({ message: "Datos incompletos." });
+
   try {
-    // Verificar que el candidato pertenece a la campaña
-    const candidate = await db.get(
-      'SELECT * FROM candidates WHERE id = ? AND campaign_id = ?',
-      [candidate_id, campaign_id]
+    await db.run("BEGIN TRANSACTION");
+
+    // Verificar si ya votó
+    const existing = await db.get(
+      "SELECT id FROM votes WHERE user_id = ? AND campaign_id = ?",
+      [user_id, campaign_id]
     );
-    if (!candidate) {
-      return res.status(400).json({ message: 'Candidato inválido para esta campaña' });
+    if (existing) {
+      await db.run("ROLLBACK");
+      return res.status(409).json({ message: "Ya has votado en esta campaña." });
     }
 
-    // Transacción de voto
-    await db.run('BEGIN TRANSACTION');
     await db.run(
-      `INSERT INTO votes (user_id, campaign_id, candidate_id) VALUES (?, ?, ?)`,
+      "INSERT INTO votes (user_id, campaign_id, candidate_id) VALUES (?, ?, ?)",
       [user_id, campaign_id, candidate_id]
     );
-    await db.run('COMMIT');
 
-    return res.status(201).json({ message: 'Voto registrado exitosamente' });
+    await db.run("COMMIT");
+    res.status(201).json({ message: "Voto registrado correctamente." });
   } catch (err) {
-    await db.run('ROLLBACK');
-    if (err.message.includes('UNIQUE')) {
-      return res.status(409).json({ message: 'Este usuario ya votó en esta campaña' });
-    }
+    await db.run("ROLLBACK");
     console.error(err);
-    return res.status(500).json({ message: 'Error al registrar el voto' });
+    res.status(500).json({ message: "Error al registrar voto." });
   }
+}
+
+// GET /votes/results/:campaign_id
+export async function getResults(req, res) {
+  const db = await openDb();
+  const { campaign_id } = req.params;
+
+  const results = await db.all(
+    `SELECT c.name AS candidate, COUNT(v.id) AS votes
+     FROM candidates c
+     LEFT JOIN votes v ON v.candidate_id = c.id
+     WHERE c.campaign_id = ?
+     GROUP BY c.id
+     ORDER BY votes DESC`,
+    [campaign_id]
+  );
+
+  res.json(results);
 }

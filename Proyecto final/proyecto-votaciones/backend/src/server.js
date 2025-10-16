@@ -3,13 +3,16 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import { initSchema } from './db.js';
 import userRoutes from './routes/userRoutes.js';
+import campaignRoutes from "../src/routes/campaignRoutes.js";
+import candidatesRoutes from "../src/routes/candidateRoutes.js";
+import voteRoutes from "../src/routes/voteRoutes.js";
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+/* ******************
 app.get("/ping", async (req, res) => {
     try {
         const db = await import("./db.js").then(m => m.openDb());
@@ -19,7 +22,7 @@ app.get("/ping", async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: "Database conection error" });
     }
-});
+});*/
 
 //inicializar base de datos
 initSchema().then(() => {
@@ -30,3 +33,8 @@ initSchema().then(() => {
     console.error('Failed to initialize database schema:', err);
     process.exit(1);
 });
+
+app.use("/users", userRoutes);
+app.use("/campaigns", campaignRoutes);
+app.use("/candidates", candidatesRoutes);
+app.use("/votes", voteRoutes);
