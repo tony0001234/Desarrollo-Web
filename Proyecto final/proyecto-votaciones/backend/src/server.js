@@ -2,10 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { initSchema } from './db.js';
-import userRoutes from './routes/userRoutes.js';
-import campaignRoutes from "../src/routes/campaignRoutes.js";
-import candidatesRoutes from "../src/routes/candidateRoutes.js";
-import voteRoutes from "../src/routes/voteRoutes.js";
+import { userRoutes, voteRoutes, reportRoutes, candidatesRoutes, campaignRoutes} from "../src/routes/voteRoutes.js";
+import { startScheduler } from './utils/scheduler.js';
+import { openDb } from "../src/db.js";
 
 dotenv.config();
 
@@ -28,6 +27,7 @@ app.get("/ping", async (req, res) => {
 initSchema().then(() => {
     console.log('Database schema initialized');
     const PORT = process.env.PORT || 4000;
+    startScheduler();
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }).catch(err => {
     console.error('Failed to initialize database schema:', err);
@@ -38,3 +38,4 @@ app.use("/users", userRoutes);
 app.use("/campaigns", campaignRoutes);
 app.use("/candidates", candidatesRoutes);
 app.use("/votes", voteRoutes);
+app.use("/reports", reportRoutes);

@@ -29,10 +29,14 @@ export async function initSchema() {
   await db.exec(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
+      colegiado INTEGER NOT NULL UNIQUE,
       name TEXT NOT NULL,
       email TEXT NOT NULL UNIQUE,
+      dpi INTEGER NOT NULL UNIQUE,
+      birth_date TEXT NOT NULL,
       password TEXT NOT NULL,
       role TEXT NOT NULL DEFAULT 'voter',
+      active INTEGER DEFAULT 1,
       created_at DATETIME DEFAULT (datetime('now'))
     );
     CREATE TABLE IF NOT EXISTS campaigns (
@@ -64,21 +68,28 @@ export async function initSchema() {
       FOREIGN KEY (candidate_id) REFERENCES candidates(id) ON DELETE CASCADE,
       UNIQUE(user_id, campaign_id)
     );
+    CREATE TABLE IF NOT EXISTS revoked_tokens (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    token TEXT NOT NULL,
+    expires_at DATETIME NOT NULL
+    );
   `);
 
   // índices
   await db.exec(`
     CREATE INDEX IF NOT EXISTS idx_candidates_campaign ON candidates (campaign_id);
+    CREATE INDEX IF NOT EXISTS idx_users_colegiado ON users (colegiado);
     CREATE INDEX IF NOT EXISTS idx_votes_campaign ON votes (campaign_id);
     CREATE INDEX IF NOT EXISTS idx_votes_user ON votes (user_id);
+    CREATE INDEX IF NOT EXISTS idx_revoked_tokens_token ON revoked_tokens (token);
   `);
 
   // seed básico (opcional, solo si no hay usuarios)
   const count = await db.get('SELECT COUNT(*) as c FROM users');
   if (count.c === 0) {
     // usa bcrypt para hashear, aquí se asume que ya lo hiciste antes
-    await db.run(`INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)`,
-      ['Tony Ramírez', 'tony@example.com', '$2b$10$hash_de_ejemplo', 'admin']);
+    await db.run(`INSERT INTO users (colegiado, name, email, dpi, birth_date, password, role, active) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      ['949022958' ,'Tony Ramírez', 'tony@example.com', '3030677640108', '29-03-2001', 'MiClave123!', 'admin', 1]);
   }
 
   return db;
