@@ -1,5 +1,5 @@
 import { verifyToken } from "../utils/jwt.js";
-import { openDb } from "../database/database.sqlite";
+import { openDb } from "../db.js";
 
 export async function authMiddleware(req, res, next) {
     try{

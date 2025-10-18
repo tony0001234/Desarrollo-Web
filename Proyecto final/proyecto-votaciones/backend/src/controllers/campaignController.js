@@ -59,6 +59,87 @@ export async function getCampaigns(req, res){
     res.json(campaigns);
 }
 
+//GET obtener todas las campañas
+export async function getAllCampaigns(req, res) {
+    try{
+        const db = await openDb();
+
+        const campaign = await db.all(
+            `SELECT 
+                c.id, 
+                c.title, 
+                c.description,
+                c.status,
+                c.start_date,
+                c.end_date,
+                COUNT(v.id) AS total_votes
+            FROM campaigns c
+            LEFT JOIN candidates ca ON ca.campaign_id = c.id
+            LEFT JOIN votes v ON v.candidate_id = ca.id
+            GROUP BY c.id
+            ORDER BY c.start_date DESC;
+            `);
+
+            res.status(200).json({ campaigns });
+        } catch (error) {
+            console.error("Error al obtener campañas:", error);
+            res.status(500).json({ message: "Error interno del servidor." });
+        }
+}
+
+//GET obtener campaña especifica
+export async function getCampaignById(req, res) {
+    const { id } = req.params;
+
+    try {
+        const db = await openDb();
+
+        // Obtener info general de la campaña
+        const campaign = await db.get(
+        "SELECT id, title, description, status, start_date, end_date FROM campaigns WHERE id = ?",
+            [id]
+            );
+
+            if (!campaign) {
+            return res.status(404).json({ message: "Campaña no encontrada." });
+            }
+
+            // Obtener lista de candidatos y votos
+            const candidates = await db.all(
+            `
+            SELECT 
+                ca.id,
+                ca.campaign_id,
+                ca.name,
+                COUNT(v.id) AS votes
+            FROM candidates ca
+            LEFT JOIN votes v ON v.candidate_id = ca.id
+            WHERE ca.campaign_id = ?
+            GROUP BY ca.id
+            ORDER BY votes DESC
+            `,
+            [id]
+            );
+
+            // Calcular total de votos de la campaña
+            const totalVotes = candidates.reduce((sum, c) => sum + c.votes, 0);
+
+            res.status(200).json({
+            id: campaign.id,
+            title: campaign.title,
+            description: campaign.description,
+            status: campaign.status,
+            start_date: campaign.start_date,
+            end_date: campaign.end_date,
+            totalVotes,
+            candidates,
+            });
+        } catch (error) {
+            console.error("Error al obtener campaña:", error);
+            res.status(500).json({ message: "Error interno del servidor." });
+        }
+}
+
 // POST /campaigns (solo admin)
 export async function createCampaign(req, res){
     const db = await openDb();

@@ -2,7 +2,11 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { initSchema } from './db.js';
-import { userRoutes, voteRoutes, reportRoutes, candidatesRoutes, campaignRoutes} from "../src/routes/voteRoutes.js";
+import  userRoutes from "./routes/userRoutes.js";
+import  voteRoutes  from "./routes/voteRoutes.js";
+import  reportRoutes  from "./routes/reportRoutes.js";
+import  candidatesRoutes  from "./routes/candidateRoutes.js";
+import  campaignRoutes  from './routes/campaignRoutes.js';
 import { startScheduler } from './utils/scheduler.js';
 import { openDb } from "../src/db.js";
 
@@ -39,3 +43,9 @@ app.use("/campaigns", campaignRoutes);
 app.use("/candidates", candidatesRoutes);
 app.use("/votes", voteRoutes);
 app.use("/reports", reportRoutes);
+
+app.post("/admin/cleanup-tokens", async (req, res)=>{
+    const db = await openDb();
+    const del = await db.run("DELETE FROM revoked_tokens WHERE datetime(expires_at) <= datetime(?)", [new Date().toISOString()]);
+    res.json({deleted: del.changes});
+})

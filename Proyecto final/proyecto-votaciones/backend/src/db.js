@@ -1,4 +1,3 @@
-// backend/src/db.js
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 import path from 'path';
@@ -63,6 +62,7 @@ export async function initSchema() {
       campaign_id INTEGER NOT NULL,
       candidate_id INTEGER NOT NULL,
       created_at DATETIME DEFAULT (datetime('now')),
+      
       FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
       FOREIGN KEY (campaign_id) REFERENCES campaigns(id) ON DELETE CASCADE,
       FOREIGN KEY (candidate_id) REFERENCES candidates(id) ON DELETE CASCADE,

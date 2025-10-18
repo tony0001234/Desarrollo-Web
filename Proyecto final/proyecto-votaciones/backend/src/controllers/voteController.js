@@ -10,6 +10,10 @@ export async function castVote(req, res) {
     return res.status(400).json({ message: "Datos incompletos." });
 
   try {
+    const campaign = await db.get("SELECT id, status FROM campaigns WHERE id = ?", [campaign_id]);
+    if(!campaign) return res.status(404).json({ message: "Campaña no encontrada"});
+    if(campaign.status !== 'active') return res.status(400).json({ message: "La campaña no esta activada."})
+
     await db.run("BEGIN TRANSACTION");
 
     // Verificar si ya votó

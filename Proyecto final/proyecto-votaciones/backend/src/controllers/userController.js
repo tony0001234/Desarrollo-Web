@@ -3,18 +3,44 @@ import { openDb } from '../db.js';
 import { generateToken } from '../utils/jwt.js';
 import jwt from "jsonwebtoken";
 
+//PUT cambio de usuario de su contraseña
+export async function changePassword(req, res){
+  const { id } = req.params;
+  const { oldPassword, newPassword } = req.body;
+  const db = await openDb();
+
+  if(!oldPassword || !newPassword) return res.status(400).json({ message: "Debe ingresar la contraseña acutal y la nueva."});
+
+  const user = await db.get("SELECT * FROM users WHERE id = ?", [id]);
+  if (!user) return res.status(404).json({ message: "Usuario no encontrado." });
+
+  const match = await bcrypt.compare(oldPassword, user.password);
+  if (!match) return res.status(401).json({ message: "Contraseña actual incorrecta." });
+
+  const hashedPassword = await bcrypt.hash(newPassword, 10);
+  const now = new Date().toISOString();
+
+  await db.run("UPDATE users SET password = ?, password_changed_at = ? WHERE id = ?", [
+    hashedPassword,
+    now,
+    id,
+  ]);
+
+   res.status(200).json({ message: "Contraseña cambiada correctamente." });
+}
+
 //PUT admin modifica, name, email, dpi, birth_date, role, active 
 export async function updateUser(req, res){
   const db = await openDb();
   const { id } = req.params;
-  const { name, email, dpi, birth_date, role, active } = req.body;
+  const { name, email, dpi, birth_date, role, active, password } = req.body;
 
   //validaciones basicas
   if(email){
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) return res.status(400).json( { message: "Email invalido." });
   }
-  if(dpi && !/^\d{13,}$/.test(email)) return res.status(400).json({ message: "DPI invalido."});
+  if(dpi && !/^\d{13,}$/.test(dpi)) return res.status(400).json({ message: "DPI invalido."});
 
   //conflictos de unicidad
   if (email){
@@ -35,6 +61,14 @@ export async function updateUser(req, res){
   if (birth_date) { fields.push("birth_date = ?"); values.push(birth_date); }
   if (role) { fields.push("role = ?"); values.push(role); }
   if (typeof active !== "undefined") { fields.push("active = ?"); values.push(active ? 1 : 0); }
+
+  if(password){
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    fields.push("password = ?");
+    fields.push("password_changed_at = ?");
+    values.push(hashedPassword, new Date().toISOString);
+  }
 
   if (fields.length === 0) return res.status(400).json({ message: "Nada para actualizar." });
 
